@@ -2,12 +2,6 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 
 
-def is_a_symbol(char: str) -> bool:
-    if char != "." and not char.isdigit():
-        return True
-    else:
-        return False
-
 @dataclass
 class NumAsStrAndInfo:
     starting_col_index: int | None = field(default=None)
@@ -38,9 +32,9 @@ def get_gear_coordinate_in_extended_rectangle(num_as_str_and_info: NumAsStrAndIn
                 return Coordinate(row_index=x, col_index=y)
 
 
-def calculate_gear_ratio(nums_as_str: list[NumAsStrAndInfo]) -> int | None:
-    if len(nums_as_str) == 2:
-        return int(nums_as_str[0].num_as_str)*int(nums_as_str[1].num_as_str)
+def calculate_gear_ratio(part_numbers: list[NumAsStrAndInfo]) -> int | None:
+    if len(part_numbers) == 2:
+        return int(part_numbers[0].num_as_str) * int(part_numbers[1].num_as_str)
 
 
 if __name__ == '__main__':
@@ -85,7 +79,7 @@ if __name__ == '__main__':
                     num_as_str_and_info = NumAsStrAndInfo(row_index=row_num, source_line=line)
 
         for part_numbers in gear_coordinates_to_part_numbers_mapping.values():
-            gear_ratio = calculate_gear_ratio(nums_as_str=part_numbers)
+            gear_ratio = calculate_gear_ratio(part_numbers=part_numbers)
             if gear_ratio:
                 sum_of_gear_ratios += gear_ratio
 
