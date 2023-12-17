@@ -56,7 +56,7 @@ def check_extended_rectangle_for_symbol(num_as_str_and_info: NumAsStrAndInfo, li
 
 
 if __name__ == '__main__':
-    file_path = "./day_3_part_1_input.txt"
+    file_path = "day_3_part_1_input.txt"
     with open(file_path, "r") as f:
         lines = f.read().splitlines()
         part_number_sum: int = 0
